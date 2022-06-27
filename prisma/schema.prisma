@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Todo Table Model
+model Todo {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  description String
+  completed   Boolean  @default(false)
+  deleted     Boolean  @default(false)
+}
+
+// Todo Table Model
+model TodoList {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  description String
+  completed   Boolean  @default(false)
+  deleted     Boolean  @default(false)
+}
